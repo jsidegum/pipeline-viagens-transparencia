@@ -2,8 +2,6 @@
 -- FASE 0 - CRIAÇÃO DO BANCO DE DADOS E TABELAS (0_criar_banco.sql)
 -- Arquitetura Medallion: Camadas Raw (Bruta) e Silver (Tratada)
 -- ============================================================================
- CREATE DATABASE transparencia;
-
 -- ----------------------------------------------------------------------------
 -- 1. LIMPEZA DOS OBJETOS EXISTENTES (Garantia de Idempotência)
 -- ----------------------------------------------------------------------------
