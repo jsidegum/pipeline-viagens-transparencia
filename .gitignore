@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- Adições específicas do projeto ---
+# Pasta de dados baixados (Raw data)
+data/
+*.zip
+*.csv
