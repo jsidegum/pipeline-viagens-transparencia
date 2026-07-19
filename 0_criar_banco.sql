@@ -2,6 +2,25 @@
 -- FASE 0 - CRIAÇÃO DO BANCO DE DADOS E TABELAS (0_criar_banco.sql)
 -- Arquitetura Medallion: Camadas Raw (Bruta) e Silver (Tratada)
 -- ============================================================================
+-- COMO EXECUTAR NO PGADMIN:
+--
+--   ETAPA 1: com o Query Tool conectado a QUALQUER banco existente (ex.: "postgres"),
+--            selecione e execute apenas o bloco "0. CRIAÇÃO DO BANCO" abaixo.
+--
+--   ETAPA 2: no painel esquerdo do pgAdmin, clique com o botão direito no banco
+--            "transparencia" (recém-criado) -> Query Tool, para abrir uma nova
+--            aba já conectada a ele. Nessa nova aba, execute o restante do
+--            script (a partir da seção "1. LIMPEZA DOS OBJETOS EXISTENTES").
+-- ----------------------------------------------------------------------------
+
+-- 0. CRIAÇÃO DO BANCO (Garantia de Idempotência)
+DROP DATABASE IF EXISTS transparencia;
+CREATE DATABASE transparencia;
+
+-- ============================================================================
+-- A PARTIR DAQUI, EXECUTE COM O QUERY TOOL CONECTADO AO BANCO "transparencia"
+-- ============================================================================
+
 -- ----------------------------------------------------------------------------
 -- 1. LIMPEZA DOS OBJETOS EXISTENTES (Garantia de Idempotência)
 -- ----------------------------------------------------------------------------
@@ -18,6 +37,7 @@ DROP TABLE IF EXISTS raw_viagem CASCADE;
 -- ============================================================================
 -- CAMADA RAW (Mapeamento 1:1 fiel aos arquivos CSV originais)
 -- Todas as colunas são VARCHAR e sem restrições/constraints de integridade.
+-- A ordem das colunas respeita exatamente a disposição dos arquivos brutos.
 -- ============================================================================
 
 -- 1.1. Tabela Bruta: Viagem (Origem: 2025_Viagem.csv)
